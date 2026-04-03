@@ -11,6 +11,13 @@ class _FormPageState extends State<FormPage> {
 
   String hasil = "";
 
+  void submitData(){
+    setState(() {
+      hasil = 
+      "Nama: ${namaController.text}\nEmail: ${emailController.text}";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container();
