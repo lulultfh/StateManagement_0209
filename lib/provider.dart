@@ -29,8 +29,33 @@ class FormPage extends ConsumerWidget {
     final email = ref.watch(emailProvider);
 
     return Scaffold(
-      
-    )
+      appBar: AppBar(title: Text("Form Riverpod")),
+      body: Padding(padding: EdgeInsets.all(16),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(labelText: "Nama"),
+            onChanged: (value) => 
+            ref.read(namaProvider.notifier).state = value,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: "Email"),
+            onChanged: (value) => 
+            ref.read(emailProvider.notifier).state = value,
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: (){
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Submit sukses!")),
+            );
+          },
+          child: Text("Submit")),
+          SizedBox(height: 10),
+          Text("Nama: $nama"),
+          Text("Email: $email"),
+        ],
+      ),),
+    );
   }
   
 }
