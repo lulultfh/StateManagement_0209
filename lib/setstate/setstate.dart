@@ -20,6 +20,10 @@ class _FormPageState extends State<FormPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Form Input"),
+      ),
+    );
   }
 }
