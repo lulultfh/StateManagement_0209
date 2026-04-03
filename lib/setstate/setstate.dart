@@ -24,6 +24,33 @@ class _FormPageState extends State<FormPage> {
       appBar: AppBar(
         title: Text("Form Input"),
       ),
+      body: Padding(padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          TextField(
+            controller: namaController,
+            decoration: InputDecoration(
+              labelText: "Nama",
+              border: OutlineInputBorder()
+            ),
+          ),
+          SizedBox(height: 10),
+          TextField(
+            controller: emailController,
+            decoration: InputDecoration(
+              labelText: "Email",
+              border: OutlineInputBorder()
+            ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(onPressed: submitData, child: Text("Submit")),
+          SizedBox(height: 20),
+          Text(
+            hasil,
+            style: TextStyle(fontSize: 16),
+          )
+        ],
+      ),),
     );
   }
 }
