@@ -20,3 +20,17 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//ui
+class FormPage extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref){
+    final nama = ref.watch(namaProvider);
+    final email = ref.watch(emailProvider);
+
+    return Scaffold(
+      
+    )
+  }
+  
+}
