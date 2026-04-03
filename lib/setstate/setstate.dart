@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class FormPage extends StatefulWidget {
-  const FormPage({super.key});
-
   @override
-  State<FormPage> createState() => _FormPageState();
+  _FormPageState createState() => _FormPageState();
 }
 
 class _FormPageState extends State<FormPage> {
+  final TextEditingController namaController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+
+  String hasil = "";
+
   @override
   Widget build(BuildContext context) {
     return Container();
