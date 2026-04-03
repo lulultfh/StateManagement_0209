@@ -33,11 +33,39 @@ class FormBloc extends Bloc<FormEvent, FormState> {
   }
 }
 
+//ui
 class FormPage4 extends StatelessWidget {
-  const FormPage4({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text("Form Bloc")),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: BlocBuilder<FormBloc, FormState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                TextField(
+                  onChanged: (value) =>
+                      context.read<FormBloc>().add(NameChanged(value)),
+                ),
+                TextField(
+                  onChanged: (value) =>
+                      context.read<FormBloc>().add(EmailChanged(value)),
+                ),
+                ElevatedButton(onPressed: (){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Submit Sukses!"))
+                  );
+                }, child: Text("Submit")),
+                SizedBox(height: 10),
+                Text("Nama: ${state.nama}"),
+                Text("Nama: ${state.email}"),
+              ],
+            );
+          },
+        ),
+      ),
+    );
   }
 }
