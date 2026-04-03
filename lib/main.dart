@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:statemanagement/auth/login.dart';
-import 'package:statemanagement/mainui/home.dart';
-import 'package:statemanagement/page/order_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:statemanagement/bloc/blocku.dart';
+
+final namaProvider = StateProvider<String>((ref) => "");
+final emailProvider = StateProvider<String>((ref) => "");
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider(create: (context) => FormBloc(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -33,13 +36,13 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: '/login',
-      routes: {
-        '/login':(context) => const LoginPage(),
-        '/home':(context) => const HomePage(),
-        '/order':(context) => const OrderPage(),
-      },
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // initialRoute: '/login',
+      // routes: {
+      //   '/login': (context) => const LoginPage(),
+      //   '/home': (context) => const HomePage(),
+      //   '/order': (context) => const OrderPage(),
+      // },
+      home: FormPage4(),
     );
   }
 }
